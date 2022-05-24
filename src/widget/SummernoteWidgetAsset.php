@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace s1lver\summernote\widgets;
+namespace s1lver\summernote\widget;
 
 use yii\web\AssetBundle;
 
