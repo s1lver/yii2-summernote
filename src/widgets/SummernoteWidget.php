@@ -15,6 +15,8 @@ class SummernoteWidget extends InputWidget
      */
     public function run():string
     {
+        SummernoteWidgetAsset::register($this->view);
+
         return '';
     }
 }
