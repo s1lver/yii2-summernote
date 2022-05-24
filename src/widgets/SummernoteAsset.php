@@ -4,6 +4,7 @@ declare(strict_types = 1);
 namespace s1lver\summernote\widgets;
 
 use yii\web\AssetBundle;
+use yii\web\YiiAsset;
 
 /**
  * Summernote assets
@@ -16,5 +17,8 @@ class SummernoteAsset extends AssetBundle
     ];
     public $css = [
         'summernote-bs4.min.css',
+    ];
+    public $depends = [
+        YiiAsset::class,
     ];
 }
