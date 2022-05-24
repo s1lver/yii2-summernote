@@ -18,10 +18,11 @@ class SummernoteWidget extends InputWidget
     {
         SummernoteWidgetAsset::register($this->view);
 
-        $textarea = Html::textarea($this->name, $this->value, $this->options);
+        $options = array_merge($this->options, ['data' => ['summernote' => true]]);
+        $textarea = Html::textarea($this->name, $this->value, $options);
 
         if ($this->hasModel()) {
-            $textarea = Html::activeTextarea($this->model, $this->attribute, $this->options);
+            $textarea = Html::activeTextarea($this->model, $this->attribute, $options);
         }
 
         return $textarea;
