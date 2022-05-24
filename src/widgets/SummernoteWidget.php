@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace s1lver\summernote\widgets;
 
+use yii\helpers\Html;
 use yii\widgets\InputWidget;
 
 /**
@@ -17,6 +18,12 @@ class SummernoteWidget extends InputWidget
     {
         SummernoteWidgetAsset::register($this->view);
 
-        return '';
+        $textarea = Html::textarea($this->name, $this->value, $this->options);
+
+        if ($this->hasModel()) {
+            $textarea = Html::activeTextarea($this->model, $this->attribute, $this->options);
+        }
+
+        return $textarea;
     }
 }
