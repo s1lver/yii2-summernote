@@ -11,6 +11,11 @@ use yii\widgets\InputWidget;
  */
 class SummernoteWidget extends InputWidget
 {
+    /**
+     * Default toolbar buttons
+     * @see https://summernote.org/deep-dive/#custom-toolbar-popover
+     * @var array|array[]
+     */
     public array $defaultButtons = [
         ['style', ['bold', 'italic', 'underline', 'clear']],
         ['misc', ['undo', 'redo']],
