@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  php80:
+    build:
+      context: .
+      dockerfile: docker/php/8.0/Dockerfile
+    volumes:
+      - .:/var/www
+    networks:
+      - summernote-network
+
+networks:
+  summernote-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.155.0/28
