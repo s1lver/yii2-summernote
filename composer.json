@@ -12,7 +12,7 @@
   },
   "autoload": {
     "psr-4": {
-      "s1lver\\widgets\\": "src/widgets"
+      "s1lver\\widgets\\": "src"
     }
   },
   "config": {
