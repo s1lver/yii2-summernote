@@ -11,6 +11,12 @@ use yii\widgets\InputWidget;
  */
 class SummernoteWidget extends InputWidget
 {
+    public array $defaultButtons = [
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['misc', ['undo', 'redo']],
+        ['font_style', ['fontsize']]
+    ];
+
     /**
      * @inheritDoc
      */
@@ -18,7 +24,15 @@ class SummernoteWidget extends InputWidget
     {
         SummernoteWidgetAsset::register($this->view);
 
-        $options = array_merge($this->options, ['data' => ['summernote' => true]]);
+        $options = array_merge(
+            $this->options,
+            [
+                'data' => [
+                    'summernote' => true,
+                    'default-buttons' => $this->defaultButtons,
+                ]
+            ]
+        );
         $textarea = Html::textarea($this->name, $this->value, $options);
 
         if ($this->hasModel()) {
