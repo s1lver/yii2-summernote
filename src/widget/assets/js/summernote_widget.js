@@ -1,3 +1,4 @@
+'use strict';
 let textHtml = $(document.querySelector("[data-summernote]"))
 
 textHtml.summernote({
