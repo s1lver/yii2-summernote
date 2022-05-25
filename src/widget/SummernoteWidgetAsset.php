@@ -10,7 +10,7 @@ use yii\web\AssetBundle;
  */
 class SummernoteWidgetAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/s1lver/yii2-summernote/src/widgets/assets';
+    public $sourcePath = __DIR__.'/assets';
     public $js = [
         'js/summernote_widget.js'
     ];
