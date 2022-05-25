@@ -3,9 +3,9 @@ declare(strict_types = 1);
 
 namespace s1lver\summernote\widget;
 
+use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
-use yii\base\InvalidConfigException;
 
 /**
  * Summernote widget
