@@ -7,17 +7,17 @@ use yii\web\AssetBundle;
 use yii\web\YiiAsset;
 
 /**
- * Summernote assets
+ * Summernote assets for Bootstrap 4
  */
-class SummernoteAsset extends AssetBundle
+class SummernoteBs4Asset extends AssetBundle
 {
     public $sourcePath = '@bower/summernote/dist';
     public $js = [
-        'summernote.min.js',
+        'summernote-bs4.min.js',
         'lang/summernote-ru-RU.min.js',
     ];
     public $css = [
-        'summernote.min.css',
+        'summernote-bs4.min.css',
     ];
     public $depends = [
         YiiAsset::class,

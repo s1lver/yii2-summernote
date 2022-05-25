@@ -11,6 +11,9 @@ use yii\widgets\InputWidget;
  */
 class SummernoteWidget extends InputWidget
 {
+    public const BS4 = 'bs4';
+    public const BS5 = 'bs5';
+
     /**
      * Default toolbar buttons
      * @see https://summernote.org/deep-dive/#custom-toolbar-popover
@@ -22,12 +25,14 @@ class SummernoteWidget extends InputWidget
         ['font_style', ['fontsize']]
     ];
 
+    public string $bsVersion = self::BS4;
+
     /**
      * @inheritDoc
      */
     public function run():string
     {
-        SummernoteWidgetAsset::register($this->view);
+        $this->assetRegister();
 
         $options = array_merge(
             $this->options,
@@ -45,5 +50,21 @@ class SummernoteWidget extends InputWidget
         }
 
         return $textarea;
+    }
+
+    /**
+     * @return void
+     */
+    private function assetRegister():void
+    {
+        $summernoteAsset = SummernoteAsset::class;
+        if (self::BS4 === $this->bsVersion) {
+            $summernoteAsset = SummernoteBs4Asset::class;
+        }
+        if (self::BS5 === $this->bsVersion) {
+            $summernoteAsset = SummernoteBs5Asset::class;
+        }
+
+        SummernoteWidgetAsset::register($this->view)->depends = [$summernoteAsset];
     }
 }
