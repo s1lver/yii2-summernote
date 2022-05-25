@@ -5,6 +5,7 @@ namespace s1lver\summernote\widget;
 
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
+use yii\base\InvalidConfigException;
 
 /**
  * Summernote widget
@@ -29,6 +30,7 @@ class SummernoteWidget extends InputWidget
 
     /**
      * @inheritDoc
+     * @throws InvalidConfigException
      */
     public function run():string
     {
@@ -54,6 +56,7 @@ class SummernoteWidget extends InputWidget
 
     /**
      * @return void
+     * @throws InvalidConfigException
      */
     private function assetRegister():void
     {
@@ -65,6 +68,8 @@ class SummernoteWidget extends InputWidget
             $summernoteAsset = SummernoteBs5Asset::class;
         }
 
-        SummernoteWidgetAsset::register($this->view)->depends = [$summernoteAsset];
+        $this->view->registerAssetBundle($summernoteAsset, $this->view::POS_END);
+
+        SummernoteWidgetAsset::register($this->view);
     }
 }
