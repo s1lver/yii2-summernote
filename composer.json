@@ -1,5 +1,6 @@
 {
   "name": "s1lver/yii2-summernote",
+  "description": "Summernote Super Simple WYSIWYG Editor for Yii2",
   "type": "yii2-extension",
   "minimum-stability": "stable",
   "require": {
