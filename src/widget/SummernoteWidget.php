@@ -22,7 +22,7 @@ class SummernoteWidget extends InputWidget
      */
     public array $defaultButtons = [
         ['style', ['bold', 'italic', 'underline', 'clear']],
-        ['misc', ['undo', 'redo']],
+        ['misc', ['undo', 'redo', 'codeview']],
         ['font_style', ['fontsize']]
     ];
 
