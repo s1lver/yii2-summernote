@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 php:8.0.24-fpm-alpin
+FROM --platform=linux/amd64 php:8.0.24-cli-alpine
 
 RUN apk add unzip zlib-dev libzip-dev
 RUN docker-php-ext-install zip sockets bcmath pcntl
