@@ -8,4 +8,7 @@
     <projectFiles>
         <directory name="src" />
     </projectFiles>
+    <extraFiles>
+        <directory name="vendor" />
+    </extraFiles>
 </psalm>
