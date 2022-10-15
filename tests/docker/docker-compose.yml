@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  php80:
+    container_name: yii2-summernote-php80
+    hostname: yii2-summernote-php80
+    build: ./php/8.0
+    volumes:
+      - ../runtime/.composer80:/root/.composer
+      - ../..:/var/www
+    networks: &network
+      - yii2-summernote-network
+
+  php81:
+    container_name: yii2-summernote-php81
+    hostname: yii2-summernote-php81
+    build: ./php/8.1
+    volumes:
+      - ../runtime/.composer81:/root/.composer
+      - ../..:/var/www
+    networks: *network
+
+networks:
+  yii2-summernote-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

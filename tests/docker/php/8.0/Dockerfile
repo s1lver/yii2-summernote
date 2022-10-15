@@ -8,4 +8,5 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 WORKDIR /var/www
 
+ENTRYPOINT ["sh", "tests/docker/php/entrypoint.sh"]
 CMD ["sleep", "infinity"]
