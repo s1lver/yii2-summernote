@@ -17,7 +17,7 @@ services:
     hostname: yii2-summernote-php81
     build:
       context: ../..
-      dockerfile: ./php/8.1
+      dockerfile: tests/docker/php/8.1/Dockerfile
     volumes:
       - ../runtime/.composer81:/root/.composer
     networks: *network
