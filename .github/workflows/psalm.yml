@@ -11,13 +11,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [ 80, 81 ]
+        php: [ 8.0, 8.1 ]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Build
-        run: make build
+        run: make build v=${{ matrix.php }}
 
       - name: Static analysis
         run: make analyse v=${{ matrix.php }}
