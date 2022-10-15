@@ -6,6 +6,7 @@ RUN docker-php-ext-install zip sockets bcmath pcntl
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+COPY . /var/www
 WORKDIR /var/www
 
 ENTRYPOINT ["sh", "tests/docker/php/entrypoint.sh"]
