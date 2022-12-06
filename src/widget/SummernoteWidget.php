@@ -14,17 +14,18 @@ class SummernoteWidget extends InputWidget
 {
     public const BS4 = 'bs4';
     public const BS5 = 'bs5';
+    public const DEFAULT_BUTTONS = [
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['misc', ['undo', 'redo', 'codeview']],
+        ['font_style', ['fontsize']]
+    ];
 
     /**
      * Default toolbar buttons
      * @see https://summernote.org/deep-dive/#custom-toolbar-popover
      * @var array|array[]
      */
-    public array $defaultToolbarButtons = [
-        ['style', ['bold', 'italic', 'underline', 'clear']],
-        ['misc', ['undo', 'redo', 'codeview']],
-        ['font_style', ['fontsize']]
-    ];
+    public array $defaultToolbarButtons = self::DEFAULT_BUTTONS;
     /**
      * Custom toolbar buttons setting
      * @var array
@@ -63,7 +64,8 @@ class SummernoteWidget extends InputWidget
     /**
      * @return array|array[]
      */
-    private function configureToolbarButtons():array {
+    private function configureToolbarButtons():array
+    {
         if (!empty($this->customToolbarButtons)) {
             $customButtons = [];
 
