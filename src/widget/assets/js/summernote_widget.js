@@ -33,7 +33,10 @@ jQuery(document).ready(function() {
                     dropdown.find('li a').each(function() {
                         $(this).click(function() {
                             const editor = $(this).closest('.note-editor').prev();
-                            editor.summernote('insertText', $(this).text());
+                            editor.summernote('editor.saveRange');
+                            editor.summernote('editor.restoreRange');
+                            editor.summernote('editor.focus');
+                            editor.summernote('editor.insertText', $(this).text());
                         })
                     })
                 }
