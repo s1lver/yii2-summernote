@@ -16,7 +16,7 @@ or add
 
 to the `require` section of your **composer.json** file.
 
-# How to use
+## How to use
 Displaying custom buttons
 
 ```php
