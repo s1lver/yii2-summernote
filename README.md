@@ -15,3 +15,23 @@ or add
 ```
 
 to the `require` section of your **composer.json** file.
+
+# How to use
+Displaying custom buttons
+
+```php
+<?= $form->field($model, 'test')->widget(SummernoteWidget::class, [
+    'customToolbarButtons' => [
+        [
+            'type' => 'dropdown',
+            'label' => 'Custom tags',
+            'tooltip' => 'Custom tags',
+            'values' => [
+                'Tag1',
+                'Tag2',
+                'Tag3',
+            ],
+        ],
+    ],
+]) ?>
+```
