@@ -1,4 +1,4 @@
-# yii2-summernote
+# Yii2 Summernote widget
 
 [https://summernote.org](https://summernote.org/)
 
