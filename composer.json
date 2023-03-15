@@ -2,6 +2,7 @@
   "name": "s1lver/yii2-summernote",
   "description": "Summernote Super Simple WYSIWYG Editor for Yii2",
   "type": "yii2-extension",
+  "license": "BSD-3-Clause",
   "minimum-stability": "stable",
   "require": {
     "php": "^8.0|^8.1",
