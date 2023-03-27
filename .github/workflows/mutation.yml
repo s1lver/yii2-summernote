@@ -34,7 +34,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run infection
-        run: |
-          make mutation-test v=${{ matrix.php }} "$STRYKER_DASHBOARD_API_KEY" "$GITHUB_ACTIONS"
+        run: make mutation-test v=${{ matrix.php }}
         env:
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
