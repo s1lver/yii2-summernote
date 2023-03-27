@@ -34,6 +34,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run infection
-        run: make mutation-test v=${{ matrix.php }}
+        run: |
+          docker-compose -f tests/docker/docker-compose.yml build --pull php${{ matrix.php }}
+          docker-compose -f tests/docker/docker-compose.yml run php${{ matrix.php }} php -dpcov.enabled=1 -dpcov.directory=. vendor/bin/roave-infection-static-analysis-plugin -j2 --ignore-msi-with-no-mutations --only-covered
         env:
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
