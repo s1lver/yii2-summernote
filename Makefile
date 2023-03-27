@@ -21,8 +21,8 @@ test:		## Run Unit tests
 
 mutation-test:	## Run mutation tests
 	docker-compose -f tests/docker/docker-compose.yml build --pull php$(v)
-	docker-compose -f tests/docker/docker-compose.yml run php$(v) php -dpcov.enabled=1 -dpcov.directory=. vendor/bin/roave-infection-static-analysis-plugin -j2 --ignore-msi-with-no-mutations --only-covered
+	docker-compose -f tests/docker/docker-compose.yml run php$(v) "php -dpcov.enabled=1 -dpcov.directory=. vendor/bin/roave-infection-static-analysis-plugin -j2 --ignore-msi-with-no-mutations --only-covered" --env $(shell env)
 	make down
 
 env:
-	env
+	docker-compose -f tests/docker/docker-compose.yml  run php$(v) sh --env $(shell env)
