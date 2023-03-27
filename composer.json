@@ -11,11 +11,17 @@
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
+    "roave/infection-static-analysis-plugin": "^1.16",
     "vimeo/psalm": "^5.1.0"
   },
   "autoload": {
     "psr-4": {
       "s1lver\\summernote\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "S1lver\\Summernote\\Tests\\": "tests"
     }
   },
   "config": {
@@ -24,7 +30,8 @@
       "enabled": false
     },
     "allow-plugins": {
-      "yiisoft/yii2-composer": true
+      "yiisoft/yii2-composer": true,
+      "infection/extension-installer": true
     }
   },
   "repositories": [
