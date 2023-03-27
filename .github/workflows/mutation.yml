@@ -1,7 +1,6 @@
 on:
   pull_request:
     paths-ignore:
-      - 'docs/**'
       - 'README.md'
       - 'CHANGELOG.md'
       - '.gitignore'
@@ -10,7 +9,6 @@ on:
 
   push:
     paths-ignore:
-      - 'docs/**'
       - 'README.md'
       - 'CHANGELOG.md'
       - '.gitignore'
@@ -36,6 +34,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run infection
-        run: make mutation-test v=${{ matrix.php }}
+        run: $STRYKER_DASHBOARD_API_KEY make mutation-test v=${{ matrix.php }}
         env:
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
