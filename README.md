@@ -1,5 +1,7 @@
 # Yii2 Summernote widget
 
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fs1lver%2Fsummernote%2Fdevelop)](https://dashboard.stryker-mutator.io/reports/github.com/s1lver/summernote/develop)
+
 [https://summernote.org](https://summernote.org/)
 
 ## Install

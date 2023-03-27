@@ -1,3 +1,14 @@
+# Common
 .idea
+
+# App
 vendor
+
+# Composer
 composer.lock
+
+# CI
+.env
+
+# PHPUnit
+.phpunit.result.cache

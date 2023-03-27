@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace s1lver\summernote\widget;
 
+use s1lver\summernote\widget\helpers\SummernoteWidgetHelper;
 use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
@@ -42,12 +43,14 @@ class SummernoteWidget extends InputWidget
     {
         $this->assetRegister();
 
+        $configureButtons = (new SummernoteWidgetHelper())
+            ->configureToolbarButtons($this->defaultToolbarButtons, $this->customToolbarButtons);
         $options = array_merge(
             $this->options,
             [
                 'data' => [
                     'summernote' => true,
-                    'default-buttons' => $this->configureToolbarButtons(),
+                    'default-buttons' => $configureButtons,
                     'custom-buttons' => $this->customToolbarButtons,
                 ]
             ]
@@ -59,26 +62,6 @@ class SummernoteWidget extends InputWidget
         }
 
         return $textarea;
-    }
-
-    /**
-     * @return array|array[]
-     */
-    private function configureToolbarButtons():array
-    {
-        if (!empty($this->customToolbarButtons)) {
-            $customButtons = [];
-
-            foreach ($this->customToolbarButtons as $item) {
-                if (isset($item['type']) && $item['type'] === 'dropdown') {
-                    $customButtons[] = 'customDropdownButton';
-                }
-            }
-
-            return array_merge($this->defaultToolbarButtons, $customButtons);
-        }
-
-        return $this->defaultToolbarButtons;
     }
 
     /**
