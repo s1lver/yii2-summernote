@@ -1,20 +1,20 @@
-export COMPOSE_FILE=tests/docker/docker-compose.yml
+export COMPOSE_PROJECT_NAME=yii2-summernote
 
 help:		## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
 build:		## Build Docker images
-	docker-compose up -d --build php$(v)
+	docker-compose -f tests/docker/docker-compose.yml up -d --build php$(v)
 
 down:		## Stop the built and running image
 	docker-compose down php$(v)
 
 analyse:	## Run static analyse
-	docker-compose build --pull php$(v)
-	docker-compose run php$(v) vendor/bin/psalm --stats -m --output-format=console --php-version=$(v) --threads=2
+	docker-compose -f tests/docker/docker-compose.yml build --pull php$(v)
+	docker-compose -f tests/docker/docker-compose.yml run php$(v) vendor/bin/psalm --stats -m --output-format=console --php-version=$(v) --threads=2
 	make down
 
 mutation-test:	## Run mutation tests
-	docker-compose -f tests/docker-compose.yml build --pull php$(v)
-	docker-compose -f tests/docker-compose.yml run php$(v) php -dpcov.enabled=1 -dpcov.directory=. vendor/bin/roave-infection-static-analysis-plugin -j2 --ignore-msi-with-no-mutations --only-covered
+	docker-compose -f tests/docker/docker-compose.yml build --pull php$(v)
+	docker-compose -f tests/docker/docker-compose.yml run php$(v) php -dpcov.enabled=1 -dpcov.directory=. vendor/bin/roave-infection-static-analysis-plugin -j2 --ignore-msi-with-no-mutations --only-covered
 	make down
