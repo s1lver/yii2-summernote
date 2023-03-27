@@ -16,7 +16,7 @@ analyse:	## Run static analyse
 
 test:		## Run Unit tests
 	docker-compose -f tests/docker/docker-compose.yml build --pull php$(v)
-	docker-compose -f tests/docker/docker-compose.yml run php$(v) vendor/bin/phpunit --colors=always -v --debug
+	docker-compose -f tests/docker/docker-compose.yml run php$(v) vendor/bin/phpunit --colors=always -v
 	make down
 
 mutation-test:	## Run mutation tests
