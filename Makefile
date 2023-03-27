@@ -14,6 +14,11 @@ analyse:	## Run static analyse
 	docker-compose -f tests/docker/docker-compose.yml run php$(v) vendor/bin/psalm --stats -m --output-format=console --php-version=$(v) --threads=2
 	make down
 
+test:		## Run Unit tests
+	docker-compose -f tests/docker/docker-compose.yml build --pull php$(v)
+	docker-compose -f tests/docker/docker-compose.yml run php$(v) vendor/bin/phpunit --colors=always -v --debug
+	make down
+
 mutation-test:	## Run mutation tests
 	docker-compose -f tests/docker/docker-compose.yml build --pull php$(v)
 	docker-compose -f tests/docker/docker-compose.yml run php$(v) php -dpcov.enabled=1 -dpcov.directory=. vendor/bin/roave-infection-static-analysis-plugin -j2 --ignore-msi-with-no-mutations --only-covered
