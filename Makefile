@@ -7,7 +7,7 @@ build:		## Build Docker images
 	docker-compose -f tests/docker/docker-compose.yml up -d --build php$(v)
 
 down:		## Stop the built and running image
-	docker-compose down php$(v)
+	docker-compose -f tests/docker/docker-compose.yml down
 
 analyse:	## Run static analyse
 	docker-compose -f tests/docker/docker-compose.yml build --pull php$(v)
@@ -20,7 +20,7 @@ test:		## Run Unit tests
 	make down
 
 mutation-test:	## Run mutation tests
-	env > /tmp/.env
+	env > .env
 	docker-compose -f tests/docker/docker-compose.yml build --pull php$(v)
-	docker-compose -f tests/docker/docker-compose.yml --env-file /tmp/.env run php$(v) php -dpcov.enabled=1 -dpcov.directory=. vendor/bin/roave-infection-static-analysis-plugin -j2 --ignore-msi-with-no-mutations --only-covered
+	docker-compose -f tests/docker/docker-compose.yml --env-file .env run php$(v) php -dpcov.enabled=1 -dpcov.directory=. vendor/bin/roave-infection-static-analysis-plugin -j2 --ignore-msi-with-no-mutations --only-covered
 	make down
