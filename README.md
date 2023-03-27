@@ -1,5 +1,6 @@
 # Yii2 Summernote widget
 
+[![PHPUnit Status](https://github.com/s1lver/yii2-summernote/actions/workflows/tests.yml/badge.svg)](https://github.com/s1lver/yii2-summernote/actions)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fs1lver%2Fsummernote%2Fdevelop)](https://dashboard.stryker-mutator.io/reports/github.com/s1lver/summernote/develop)
 [![Static Analysis Status](https://github.com/s1lver/yii2-summernote/actions/workflows/psalm.yml/badge.svg)](https://github.com/s1lver/yii2-summernote/actions)
 
