@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace s1lver\summernote\widget\helpers;
+namespace S1lver\Summernote\Widget\Helpers;
 
 final class SummernoteWidgetHelper
 {

@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "s1lver\\summernote\\": "src"
+      "S1lver\\Summernote\\": "src"
     }
   },
   "autoload-dev": {

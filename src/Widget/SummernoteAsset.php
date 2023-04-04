@@ -1,23 +1,23 @@
 <?php
 declare(strict_types = 1);
 
-namespace s1lver\summernote\widget;
+namespace S1lver\Summernote\Widget;
 
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
 
 /**
- * Summernote assets for Bootstrap 5
+ * Summernote assets
  */
-class SummernoteBs5Asset extends AssetBundle
+class SummernoteAsset extends AssetBundle
 {
     public $sourcePath = '@bower/summernote/dist';
     public $js = [
-        'summernote-bs5.min.js',
+        'summernote.min.js',
         'lang/summernote-ru-RU.min.js',
     ];
     public $css = [
-        'summernote-bs5.min.css',
+        'summernote.min.css',
     ];
     public $depends = [
         YiiAsset::class,

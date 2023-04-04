@@ -1,9 +1,9 @@
 <?php
 declare(strict_types = 1);
 
-namespace s1lver\summernote\widget;
+namespace S1lver\Summernote\Widget;
 
-use s1lver\summernote\widget\helpers\SummernoteWidgetHelper;
+use S1lver\Summernote\Widget\Helpers\SummernoteWidgetHelper;
 use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;

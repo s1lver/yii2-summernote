@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace S1lver\Summernote\Tests\Unit;
 
-use s1lver\summernote\widget\helpers\SummernoteWidgetHelper;
-use s1lver\summernote\widget\SummernoteWidget;
+use S1lver\Summernote\Widget\Helpers\SummernoteWidgetHelper;
+use S1lver\Summernote\Widget\SummernoteWidget;
 use PHPUnit\Framework\TestCase;
 
 class WidgetTest extends TestCase
